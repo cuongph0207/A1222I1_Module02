@@ -4,9 +4,10 @@ public class Point2D {
     private float x = 0.0f;
     private float y = 0.0f;
 
-    public  Point2D(){
+    public Point2D() {
 
     }
+
     public Point2D(float x, float y) {
         this.x = x;
         this.y = y;
@@ -27,10 +28,12 @@ public class Point2D {
     public void setY(float y) {
         this.y = y;
     }
-    public float[] getXY(){
-        return new float [] {x, y};
+
+    public float[] getXY() {
+        return new float[]{x, y};
     }
-    public void setXY(float newX , float newY){
+
+    public void setXY(float newX, float newY) {
         this.x = newX;
         this.y = newY;
     }

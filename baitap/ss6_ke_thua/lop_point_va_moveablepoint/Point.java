@@ -3,9 +3,11 @@ package module2.baitap.ss6_ke_thua.lop_point_va_moveablepoint;
 public class Point {
     float x = 0.0f;
     float y = 0.0f;
-    public Point(){
+
+    public Point() {
 
     }
+
     public Point(float x, float y) {
         this.x = x;
         this.y = y;
@@ -26,12 +28,14 @@ public class Point {
     public void setY(float y) {
         this.y = y;
     }
-    public void setXY(float newX , float newY){
+
+    public void setXY(float newX, float newY) {
         this.x = newX;
         this.y = newY;
     }
-    public float[] getXY(){
-        return new float [] {x, y};
+
+    public float[] getXY() {
+        return new float[]{x, y};
     }
 
     @Override
