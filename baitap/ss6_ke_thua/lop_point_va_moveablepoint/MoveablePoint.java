@@ -1,21 +1,21 @@
 package module2.baitap.ss6_ke_thua.lop_point_va_moveablepoint;
 
-public class MoveAblePoint extends Point {
+public class MoveablePoint extends Point {
     private float xSpeed = 0.0f;
     private float ySpeed = 0.0f;
 
-    public MoveAblePoint(float xSpeed, float ySpeed) {
+    public MoveablePoint(float xSpeed, float ySpeed) {
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
     }
 
-    public MoveAblePoint(float x, float y, float xSpeed, float ySpeed) {
+    public MoveablePoint(float x, float y, float xSpeed, float ySpeed) {
         super(x, y);
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
     }
 
-    public MoveAblePoint() {
+    public MoveablePoint() {
 
     }
 
@@ -53,7 +53,7 @@ public class MoveAblePoint extends Point {
                 '}';
     }
 
-    public MoveAblePoint move() {
+    public MoveablePoint move() {
         x += xSpeed;
         y += ySpeed;
         return this;
