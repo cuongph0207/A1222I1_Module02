@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/dem_so_lan_xuat_hien_ki_tu" isTestSource="false" packagePrefix="Module02.BaiTap.ss3_MangVaPhuongThucTrongJava.DemSoLanXuatHienCuaKiTu" />
+      <sourceFolder url="file://$MODULE_DIR$/gop_mang" isTestSource="false" packagePrefix="Module02.BaiTap.ss3_MangVaPhuongThucTrongJava.GopMang" />
+      <sourceFolder url="file://$MODULE_DIR$/them_phan_tu_vao_mang" isTestSource="false" packagePrefix="Module02.BaiTap.ss3_MangVaPhuongThucTrongJava.ThemPhanTuVaoMang" />
+      <sourceFolder url="file://$MODULE_DIR$/tim_gia_tri_nho_nhat" isTestSource="false" packagePrefix="Module02.BaiTap.ss3_MangVaPhuongThucTrongJava.TimGiaTriNhoNhat" />
+      <sourceFolder url="file://$MODULE_DIR$/tim_phan_tu_lon_nhat_trong_mang_da_chieu" isTestSource="false" packagePrefix="Module02.BaiTap.ss3_MangVaPhuongThucTrongJava.TimPhanTuLonNhatTrongMang2Chieu" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
