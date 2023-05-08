@@ -7,7 +7,7 @@ public class Main {
         System.out.println(circle.toString());
         System.out.println("Lớp Cylinder:");
         Cylinder cylinder = new Cylinder("Red", 10, 5);
-        System.out.println("Thể Tích Hình Trụ Là :" + cylinder.cylindericalVolume());
+//        System.out.println("Thể Tích Hình Trụ Là :" + cylinder.cylindericalVolume());
         System.out.println(cylinder.toString());
     }
 }

@@ -29,11 +29,14 @@ public class Circle {
         this.radius = radius;
     }
 
+    public double getArea() {
+        return 2 * Math.PI * getRadius();
+    }
+
     @Override
     public String toString() {
         return "Circle{" +
-                "color='" + color + '\'' +
-                ", radius=" + radius +
-                '}';
+                "color=" + color +
+                ", radius=" + radius + ", area=" + getArea() + "}";
     }
 }

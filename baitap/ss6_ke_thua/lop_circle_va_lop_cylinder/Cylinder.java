@@ -16,7 +16,7 @@ public class Cylinder extends Circle {
         return "Cylinder{" +
                 "color='" + super.getColor() + '\'' +
                 ", radius=" + super.getRadius() +
-                ", height=" + this.height +
+                ", height=" + this.height + ", calVolume : " + cylindericalVolume() +
                 '}';
     }
 }
