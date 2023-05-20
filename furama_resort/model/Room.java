@@ -1,14 +1,18 @@
 package module2.furama_resort.model;
 
-public class Room extends Facility{
-    public Room(String nameService, double area, double cost, int maxUse, String styleRent) {
-        super(nameService, area, cost, maxUse, styleRent);
-    }
+public class Room extends Facility {
     private String freeService;
 
-    public Room(String nameService, double area, double cost, int maxUse, String styleRent, String freeService) {
-        super(nameService, area, cost, maxUse, styleRent);
+    public Room(String serviceID, String serviceName, double area, double cost, int maxUse, String styleRent, String freeService) {
+        super(serviceID, serviceName, area, cost, maxUse, styleRent);
         this.freeService = freeService;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "freeService='" + freeService + '\'' +
+                '}';
     }
 
     public String getFreeService() {
@@ -19,10 +23,4 @@ public class Room extends Facility{
         this.freeService = freeService;
     }
 
-    @Override
-    public String toString() {
-        return "Room{" +
-                "freeService='" + freeService + '\'' +
-                '}';
-    }
 }

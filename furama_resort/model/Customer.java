@@ -4,14 +4,18 @@ import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
-public class Customer extends Person{
-    public Customer(String idName, String name, int age, String gender, int idCode, int numberPhone, String email) {
-        super(idName, name, age, gender, idCode, numberPhone, email);
-    }
+public class Customer extends Person {
+
     private String rankCustomer;
     private String address;
 
     public Customer() {
+    }
+
+    public Customer(Scanner input, String id, String name, int dayOfBirth, String gender, int idCode, int numberPhone, String email, String rankCustomer, String address) {
+        super(input, id, name, dayOfBirth, gender, idCode, numberPhone, email);
+        this.rankCustomer = rankCustomer;
+        this.address = address;
     }
 
     public String getRankCustomer() {
@@ -26,7 +30,7 @@ public class Customer extends Person{
         System.out.println("5. Member");
         Scanner input = new Scanner(System.in);
         int choice = parseInt(input.nextLine());
-        switch (choice){
+        switch (choice) {
             case 1:
                 this.rankCustomer = "Diamond";
                 break;
@@ -56,17 +60,12 @@ public class Customer extends Person{
         this.address = input.nextLine();
     }
 
-    public Customer(String idName, String name, int age, String gender, int idCode, int numberPhone, String email, String categoryCustomer, String address) {
-        super(idName, name, age, gender, idCode, numberPhone, email);
-        this.rankCustomer = categoryCustomer;
-        this.address = address;
-    }
-
     @Override
     public String toString() {
-        return "Customer{" + super.toString()+
+        return "Customer{" +
                 "rankCustomer='" + rankCustomer + '\'' +
                 ", address='" + address + '\'' +
+                ", input=" + input +
                 '}';
     }
 }

@@ -1,24 +1,22 @@
 package module2.furama_resort.model;
 
+import java.util.Scanner;
+
 import static java.lang.Integer.parseInt;
 
-public class Employee extends Person{
-    public Employee(String idName, String name, int age, String gender, int idCode, int numberPhone, String email) {
-        super(idName, name, age, gender, idCode, numberPhone, email);
-    }
+public class Employee extends Person {
     private String level;
     private String regency;
     private int salary;
 
-    public Employee(String idName, String name, int age, String gender, int idCode, int numberPhone, String email, String level, String regency, int salary) {
-        super(idName, name, age, gender, idCode, numberPhone, email);
+    public Employee() {
+    }
+
+    public Employee(Scanner input, String id, String name, int dayOfBirth, String gender, int idCode, int numberPhone, String email, String level, String regency, int salary) {
+        super(input, id, name, dayOfBirth, gender, idCode, numberPhone, email);
         this.level = level;
         this.regency = regency;
         this.salary = salary;
-    }
-
-    public Employee() {
-        super();
     }
 
     public String getLevel() {
@@ -32,7 +30,7 @@ public class Employee extends Person{
         System.out.println("1. University");
         System.out.println("1. Master");
         int choice = parseInt(input.nextLine());
-        switch (choice){
+        switch (choice) {
             case 1:
                 this.level = "High school";
                 break;
@@ -59,9 +57,9 @@ public class Employee extends Person{
         System.out.println("3. Expert");
         System.out.println("4. Supervisor");
         System.out.println("5. Manager");
-        System.out.println("4. Director");
+        System.out.println("6. Director");
         int choice = parseInt(input.nextLine());
-        switch (choice){
+        switch (choice) {
             case 1:
                 this.regency = "Receptionist";
                 break;
@@ -72,7 +70,7 @@ public class Employee extends Person{
                 this.regency = "Expert";
                 break;
             case 4:
-                this.regency= "Supervisor";
+                this.regency = "Supervisor";
                 break;
             case 5:
                 this.regency = "Manager";
@@ -94,10 +92,11 @@ public class Employee extends Person{
 
     @Override
     public String toString() {
-        return "Employee{" + super.toString()+
-                " level='" + level + '\'' +
+        return "Employee{" +
+                "level='" + level + '\'' +
                 ", regency='" + regency + '\'' +
                 ", salary=" + salary +
+                ", input=" + input +
                 '}';
     }
 }

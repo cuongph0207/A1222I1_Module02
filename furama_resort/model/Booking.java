@@ -4,24 +4,27 @@ import java.util.Date;
 
 public class Booking extends Facility {
     private String idBooking;
+    private Date bookingDay;
     private Date startDay;
     private Date endDay;
     private String categoryService;
-    public Booking(String nameService) {
-        super(nameService);
+
+    public Booking() {
     }
 
-    public Booking(String nameService, String idBooking, Date startDay, Date endDay, String categoryService) {
+    public Booking(String nameService, String idBooking, Date bookingDay, Date startDay, Date endDay, String categoryService) {
         super(nameService);
         this.idBooking = idBooking;
+        this.bookingDay = bookingDay;
         this.startDay = startDay;
         this.endDay = endDay;
         this.categoryService = categoryService;
     }
 
-    public Booking(String nameService, double area, double cost, int maxUse, String styleRent, String idBooking, Date startDay, Date endDay, String categoryService) {
-        super(nameService, area, cost, maxUse, styleRent);
+    public Booking(String serviceID, String serviceName, double area, double cost, int maxUse, String styleRent, String idBooking, Date bookingDay, Date startDay, Date endDay, String categoryService) {
+        super(serviceID, serviceName, area, cost, maxUse, styleRent);
         this.idBooking = idBooking;
+        this.bookingDay = bookingDay;
         this.startDay = startDay;
         this.endDay = endDay;
         this.categoryService = categoryService;
@@ -33,6 +36,14 @@ public class Booking extends Facility {
 
     public void setIdBooking(String idBooking) {
         this.idBooking = idBooking;
+    }
+
+    public Date getBookingDay() {
+        return bookingDay;
+    }
+
+    public void setBookingDay(Date bookingDay) {
+        this.bookingDay = bookingDay;
     }
 
     public Date getStartDay() {
@@ -63,6 +74,7 @@ public class Booking extends Facility {
     public String toString() {
         return "Booking{" +
                 "idBooking='" + idBooking + '\'' +
+                ", bookingDay=" + bookingDay +
                 ", startDay=" + startDay +
                 ", endDay=" + endDay +
                 ", categoryService='" + categoryService + '\'' +
