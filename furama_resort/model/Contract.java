@@ -7,20 +7,28 @@ public class Contract extends Booking{
     private int deposit;
     private int totalCost;
     private String idCustomer;
-
-    public Contract() {
+    public Contract(String idBooking) {
+        super(idBooking);
     }
 
-    public Contract(String nameService, String idBooking, Date bookingDay, Date startDay, Date endDay, String categoryService, int numContract, int deposit, int totalCost, String idCustomer) {
-        super(nameService, idBooking, bookingDay, startDay, endDay, categoryService);
+    public Contract(String nameService, int numContract, int deposit, int totalCost, String idCustomer) {
+        super(nameService);
         this.numContract = numContract;
         this.deposit = deposit;
         this.totalCost = totalCost;
         this.idCustomer = idCustomer;
     }
 
-    public Contract(String serviceID, String serviceName, double area, double cost, int maxUse, String styleRent, String idBooking, Date bookingDay, Date startDay, Date endDay, String categoryService, int numContract, int deposit, int totalCost, String idCustomer) {
-        super(serviceID, serviceName, area, cost, maxUse, styleRent, idBooking, bookingDay, startDay, endDay, categoryService);
+    public Contract(String nameService, String idBooking, Date startDay, Date endDay, String categoryService, int numContract, int deposit, int totalCost, String idCustomer) {
+        super(nameService, idBooking, startDay, endDay, categoryService);
+        this.numContract = numContract;
+        this.deposit = deposit;
+        this.totalCost = totalCost;
+        this.idCustomer = idCustomer;
+    }
+
+    public Contract(String nameService, double area, double cost, int maxUse, String styleRent, String idBooking, Date startDay, Date endDay, String categoryService, int numContract, int deposit, int totalCost, String idCustomer) {
+        super(nameService, area, cost, maxUse, styleRent, idBooking, startDay, endDay, categoryService);
         this.numContract = numContract;
         this.deposit = deposit;
         this.totalCost = totalCost;

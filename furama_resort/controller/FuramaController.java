@@ -4,17 +4,18 @@ import module2.furama_resort.model.Employee;
 import module2.furama_resort.service.CustomerService;
 import module2.furama_resort.service.EmployeeService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FuramaController {
     static EmployeeService employeeService =  new EmployeeService();
     static CustomerService customerService = new CustomerService();
-    public static void displayMainMenu() {
+    public static void displayMainMenu() throws IOException, ClassNotFoundException {
         boolean check = true;
         while (check) {
             System.out.println("1. Employee Management");
             System.out.println("2. Customer Management");
-            System.out.println("3.Facility Management");
+            System.out.println("3. Facility Management");
             System.out.println("4. Booking Management");
             System.out.println("5. Promotion Management");
             System.out.println("6. Exit");
@@ -46,7 +47,7 @@ public class FuramaController {
             }
         }
     }
-    public static void displayEmployeeManagement(){
+    public static void displayEmployeeManagement() throws IOException, ClassNotFoundException {
         boolean check = true;
         while (check) {
             System.out.println("1. Display list employees");
@@ -74,7 +75,7 @@ public class FuramaController {
             }
         }
     }
-    public static void displayFacilityManagement(){
+    public static void displayFacilityManagement() throws IOException, ClassNotFoundException {
         boolean check = true;
         while (check) {
             System.out.println("1. Display list facility");
@@ -99,7 +100,7 @@ public class FuramaController {
             }
         }
     }
-    public static void displayCustommerManagement(){
+    public static void displayCustommerManagement() throws IOException, ClassNotFoundException {
         boolean check = true;
         while (check) {
             System.out.println("1. Display list customers");
@@ -127,7 +128,7 @@ public class FuramaController {
             }
         }
     }
-    public static void displayBookingManagement(){
+    public static void displayBookingManagement() throws IOException, ClassNotFoundException {
         boolean check = true;
         while (check) {
             System.out.println("1. Add new booking");
@@ -160,7 +161,7 @@ public class FuramaController {
             }
         }
     }
-    public static void displayPromotionManagement(){
+    public static void displayPromotionManagement() throws IOException, ClassNotFoundException {
         boolean check = true;
         while (check) {
             System.out.println("1. Display list customers use service");
@@ -182,7 +183,7 @@ public class FuramaController {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         displayMainMenu();
     }
 }

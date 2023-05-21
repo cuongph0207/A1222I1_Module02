@@ -1,6 +1,7 @@
 package module2.furama_resort.service;
 
-public class BookingServiceImpl implements IBookingService{
+public class BookingService implements IBookingService {
+    @Override
     public void display() {
 
     }

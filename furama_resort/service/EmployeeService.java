@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class EmployeeService extends Employee implements IEmployeeService {
     static ArrayList<Employee> employeeList;
     static {
-        File employeeFile = new File("D:\\Codegym\\Module02\\A1222I1_Module02\\furama_resort\\data\\csv");
+        File employeeFile = new File("D:\\Codegym\\Module02\\A1222I1_Module02\\furama_resort\\data\\employee.csv");
         try {
             OutputStream os = new FileOutputStream(employeeFile);
             ObjectOutputStream oos = new ObjectOutputStream(os);
@@ -26,9 +26,24 @@ public class EmployeeService extends Employee implements IEmployeeService {
 
     }
     @Override
-    public void display() {
-        for(Employee e: employeeList){
-            System.out.println(e.toString());
+    public void display() throws IOException, ClassNotFoundException {
+        File employeeFile = new File("D:\\Codegym\\Module02\\A1222I1_Module02\\furama_resort\\data\\employee.csv");
+        try {
+            InputStream is = new FileInputStream(employeeFile);
+            ObjectInputStream ois = new ObjectInputStream(is);
+            Employee e = null;
+            while(true){
+               Object oj = ois.readObject();
+                if(oj==null) {
+                    break;
+                }else if(oj!=null){
+                    e = (Employee) oj;
+                    this.employeeList.add(e);
+                }
+            }
+            ois.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 

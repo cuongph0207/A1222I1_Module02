@@ -1,6 +1,7 @@
 package module2.furama_resort.service;
 
-public class ContactService implements IContactService{
+public class ContactService implements IContactService {
+    @Override
     public void display() {
 
     }

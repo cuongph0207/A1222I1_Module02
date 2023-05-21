@@ -1,31 +1,21 @@
 package module2.furama_resort.model;
 
 public abstract class Facility {
-    private String serviceID;
-
-    private String serviceName;
+    private String nameService;
     private double area;
     private double cost;
-    private int max;
+    private int maxUse;
     private String styleRent;
 
     public Facility(String nameService) {
     }
 
-    public String getServiceID() {
-        return serviceID;
+    public String getNameService() {
+        return nameService;
     }
 
-    public void setServiceID(String serviceID) {
-        this.serviceID = serviceID;
-    }
-
-    public String getServiceName() {
-        return serviceName;
-    }
-
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public void setNameService(String nameService) {
+        this.nameService = nameService;
     }
 
     public double getArea() {
@@ -44,12 +34,12 @@ public abstract class Facility {
         this.cost = cost;
     }
 
-    public int getMax() {
-        return max;
+    public int getMaxUse() {
+        return maxUse;
     }
 
-    public void setMax(int max) {
-        this.max = max;
+    public void setMaxUse(int maxUse) {
+        this.maxUse = maxUse;
     }
 
     public String getStyleRent() {
@@ -60,26 +50,21 @@ public abstract class Facility {
         this.styleRent = styleRent;
     }
 
-    public Facility() {
-    }
-
-    public Facility(String serviceID, String serviceName, double area, double cost, int maxUse, String styleRent) {
-        this.serviceID = serviceID;
-        this.serviceName = serviceName;
+    public Facility(String nameService, double area, double cost, int maxUse, String styleRent) {
+        this.nameService = nameService;
         this.area = area;
         this.cost = cost;
-        this.max = max;
+        this.maxUse = maxUse;
         this.styleRent = styleRent;
     }
 
     @Override
     public String toString() {
         return "Facility{" +
-                "serviceID='" + serviceID + '\'' +
-                ", serviceName='" + serviceName + '\'' +
+                "nameService='" + nameService + '\'' +
                 ", area=" + area +
                 ", cost=" + cost +
-                ", max=" + max +
+                ", maxUse=" + maxUse +
                 ", styleRent='" + styleRent + '\'' +
                 '}';
     }
