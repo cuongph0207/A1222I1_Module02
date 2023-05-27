@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.LinkedHashMap;
 
 public class ReadAndWriteHouse {
-    private static final String FILE_PATH = "D:\\Codegym\\Module02\\A1222I1_Module02\\Furama\\data\\house.csv";
+    private static final String FILE_PATH = "D:\\Codegym\\Module02\\A1222I1_Module02\\Furama\\data\\House.csv";
 
     public static LinkedHashMap<Facility, Integer> readCSV() throws IOException {
         LinkedHashMap<Facility, Integer> fac = new LinkedHashMap<>();
@@ -28,7 +28,7 @@ public class ReadAndWriteHouse {
             double usableArea = Double.parseDouble(temp[5]);
             String roomStandard = temp[6];
             int numberOfFloors = Integer.parseInt(temp[7]);
-            house = new House(id,name, price, numberOfPeople, rentalTyle, usableArea, roomStandard, numberOfFloors);
+            house = new House(id, name,usableArea, price, numberOfPeople, rentalTyle, roomStandard, numberOfFloors);
             fac.put(house, 0);
         }
         buff.close();
@@ -41,7 +41,7 @@ public class ReadAndWriteHouse {
         for (Facility facility : houseLinkdedHashMap.keySet()) {
             if (facility instanceof House) {
                 House house = new House();
-                bufferedWriter.write(house.getId() +","+ house.getName() + "," + house.getPrice() + "," + house.getNumberOfPeople() + "," + house.getRentalType() + "," + house.getUsableArea() + "," + house.getRoomStandard() + "," + house.getNumberOfFloors() + "\n");
+                bufferedWriter.write(house.getServiceCode() + "," + house.getServiceName() + ","+ house.getArea() +","+ house.getPrice() + "," + house.getNumberOfPeople() + "," + house.getStyleRent() + "," + house.getFloor() + "\n");
 
             }
         }

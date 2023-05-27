@@ -1,4 +1,4 @@
-package module2.Furama.until;
+package module2.Furama.validate;
 
 import java.util.Scanner;
 

@@ -3,24 +3,25 @@ package module2.Furama.model;
 import java.time.LocalDate;
 
 public class Employee extends Person {
-    private String level; // trình độ
-    private double salary; //lương
-    private String position; //chức vụ
+    private String level;
+    private String position;
 
-    public Employee(String id, String name, LocalDate age, String gender, String s, String email, String level, double salary, String position) {
+    private double salary;
+
+    public Employee() {
     }
 
-    public Employee(String level, double salary, String position) {
+    public Employee(String level, String position, double salary) {
         this.level = level;
-        this.salary = salary;
         this.position = position;
+        this.salary = salary;
     }
 
-    public Employee(String id, String name, LocalDate age, String gender, String address, String idCard, String email, String level, double salary, String position) {
-        super(id, name, age, gender, idCard, email);
+    public Employee(String id, String name, LocalDate dateOfBirth, String gender, String idCard, String phone, String email, String level, String position, double salary) {
+        super(id, name, dateOfBirth, gender, idCard, phone, email);
         this.level = level;
-        this.salary = salary;
         this.position = position;
+        this.salary = salary;
     }
 
     public String getLevel() {
@@ -31,14 +32,6 @@ public class Employee extends Person {
         this.level = level;
     }
 
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
     public String getPosition() {
         return position;
     }
@@ -47,12 +40,27 @@ public class Employee extends Person {
         this.position = position;
     }
 
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
-                "level='" + level + '\'' +
-                ", salary=" + salary +
-                ", position='" + position + '\'' +
+                "id='" + super.getId() + '\'' +
+                ", name='" + super.getName() + '\'' +
+                ", dateOfBirth=" + super.getDateOfBirth() +
+                ", gender='" + super.getGender() + '\'' +
+                ", idCard='" + super.getIdCard() + '\'' +
+                ", phone='" + super.getPhone() + '\'' +
+                ", email='" + super.getEmail() + '\'' +
+                ", level='" + level +'\''+
+                ", position='" + position +'\''+
+                ", salary='" + salary +'\''+
                 '}';
     }
 }

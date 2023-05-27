@@ -3,21 +3,23 @@ package module2.Furama.model;
 public abstract class Facility {
     private String serviceCode;
     private String serviceName;
+    private double area;
     private double price;
     private int numberOfPeople;
     private String styleRent;
-    private double area;
+
 
     public Facility() {
     }
 
-    public Facility(String serviceCode, String serviceName, double price, int numberOfPeople, String styleRent, double area) {
+    public Facility(String serviceCode, String serviceName, double area, double price, int numberOfPeople, String styleRent) {
         this.serviceCode = serviceCode;
         this.serviceName = serviceName;
+        this.area = area;
         this.price = price;
         this.numberOfPeople = numberOfPeople;
         this.styleRent = styleRent;
-        this.area = area;
+
     }
 
     public String getServiceCode() {
@@ -73,10 +75,10 @@ public abstract class Facility {
         return "Facility{" +
                 "serviceCode='" + serviceCode + '\'' +
                 ", serviceName='" + serviceName + '\'' +
+                ", area=" + area +
                 ", price=" + price +
                 ", numberOfPeople=" + numberOfPeople +
                 ", styleRent='" + styleRent + '\'' +
-                ", area=" + area +
                 '}';
     }
 }

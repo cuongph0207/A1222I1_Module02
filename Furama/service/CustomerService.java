@@ -2,7 +2,7 @@ package module2.Furama.service;
 
 import module2.Furama.model.Customer;
 import module2.Furama.until.ReadAndWriteCustomer;
-import module2.Furama.until.RegexPerson;
+import module2.Furama.validate.RegexPerson;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -23,10 +23,6 @@ public class CustomerService implements ICustomerService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        for (int i =0; i<list.size();i++){
-//            System.out.println(list.get(i));
-//        }
-
     }
 
     @Override
@@ -42,12 +38,11 @@ public class CustomerService implements ICustomerService {
         }
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập id");
-        String id = sc.nextLine();
+        String id = RegexPerson.idCustomer();
         String name = RegexPerson.name();
         LocalDate age = RegexPerson.age();
         System.out.println("Chọn Giới Tính : ");
-        System.out.println("1.Nam || 2.Nu || 3.Khac");
+        System.out.println("1.Nam || 2.Nữ || 3.Khác");
         String gender = null;
         int choose;
         do {
@@ -62,14 +57,14 @@ public class CustomerService implements ICustomerService {
                     break;
             }
         } while (choose < 1 || choose > 2);
-        System.out.println("Nhập địa chỉ");
-        String address = sc.nextLine();
         String idCard = RegexPerson.idCard();
+        String phone = RegexPerson.phone();
         String email = RegexPerson.email();
+        //loại khách
         String type = null;
-        System.out.println(" loại: ");
+        System.out.println("Loại: ");
         System.out.println("1.Diamond");
-        System.out.println("2.Platinium");
+        System.out.println("2.Platinum");
         System.out.println("3.Gold");
         System.out.println("4.Silver");
         System.out.println("5.Member");
@@ -81,7 +76,7 @@ public class CustomerService implements ICustomerService {
                     type = "Diamond";
                     break;
                 case 2:
-                    type = "Platinium";
+                    type = "Platinum";
                     break;
                 case 3:
                     type = "Gold";
@@ -94,14 +89,15 @@ public class CustomerService implements ICustomerService {
                     break;
             }
         } while (choose < 1 || choose > 5);
+        System.out.println("Nhập địa chỉ");
+        String address = sc.nextLine();
 
-        Customer customer = new Customer(id, name, age, gender, idCard, email, type, address);
+        Customer customer = new Customer(id, name, age, gender, idCard,phone,email, type, address);
         customerList.add(customer);
         //write
         try {
             ReadAndWriteCustomer.writeCSV(customerList);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         display();
@@ -110,7 +106,7 @@ public class CustomerService implements ICustomerService {
     @Override
     public void edit() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập vào id cần sửa thông tin");
+        System.out.println("Nhập ID Customer Cần Sửa Thông Tin : ");
         String id = sc.nextLine();
         boolean check = false;
         for (int i = 0; i < customerList.size(); i++) {
@@ -118,13 +114,13 @@ public class CustomerService implements ICustomerService {
                 check = true;
                 String name = RegexPerson.name();
                 LocalDate age = RegexPerson.age();
-                System.out.println("Chọn giới tính");
+                System.out.println("Chọn Giới Tính : ");
                 System.out.println("1.Nam");
                 System.out.println("2.Nữ");
                 String gender = null;
                 int choose;
                 do {
-                    System.out.println("Chọn giới tính:");
+                    System.out.println("Chọn Giới Tính :");
                     choose = Integer.parseInt(sc.nextLine());
                     switch (choose) {
                         case 1:
@@ -135,15 +131,14 @@ public class CustomerService implements ICustomerService {
                             break;
                     }
                 } while (choose < 1 || choose > 2);
-                System.out.println("Nhập địa chỉ");
-                String address = sc.nextLine();
                 String idCard = RegexPerson.idCard();
+                String phone = RegexPerson.phone();
                 String email = RegexPerson.email();
                 //loại khách
                 String type = null;
                 System.out.println(" loại: ");
                 System.out.println("1.Diamond");
-                System.out.println("2.Platinium");
+                System.out.println("2.Platinum");
                 System.out.println("3.Gold");
                 System.out.println("4.Silver");
                 System.out.println("5.Member");
@@ -155,7 +150,7 @@ public class CustomerService implements ICustomerService {
                             type = "Diamond";
                             break;
                         case 2:
-                            type = "Platinium";
+                            type = "Platinum";
                             break;
                         case 3:
                             type = "Gold";
@@ -167,9 +162,12 @@ public class CustomerService implements ICustomerService {
                             type = "Member";
                             break;
                     }
+
                 } while (choose < 1 || choose > 5);
-                Customer customer = new Customer(id, name, age, gender, idCard, email, type, address);
-                customerList.set(i, new Customer(id, name, age, gender, idCard, email, type, address));
+                System.out.println("Nhập địa chỉ");
+                String address = sc.nextLine();
+                Customer customer = new Customer(id, name, age, gender, idCard, phone,email, type, address);
+                customerList.set(i, new Customer(id, name, age, gender, idCard, phone,email, type, address));
                 try {
                     ReadAndWriteCustomer.writeCSV(customerList);
                 } catch (IOException e) {
@@ -178,10 +176,11 @@ public class CustomerService implements ICustomerService {
                 display();
 
             }
-        }
+            }
         if (!check) {
-            System.out.println("Không tìm thấy id");
+            System.out.println("Không Tìm Thấy ID");
         }
+
     }
 
     @Override

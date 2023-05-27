@@ -1,6 +1,6 @@
 package module2.Furama.service;
 
-public class ContractService implements IContractService{
+public class ContractService implements IContractService {
     @Override
     public void display() {
 

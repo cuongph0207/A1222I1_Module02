@@ -14,12 +14,7 @@ import java.util.Scanner;
 
 public class FacilityService implements IFacilityService {
     private static LinkedHashMap<Facility, Integer> facilitieHashMap = new LinkedHashMap<>();
-    //    static {
-//        facility.put(new Villa("Villa",5000000,6,"Tháng",500,"Thường",3,200),0);
-//        facility.put(new House("House",500000,3,"Ngày", 1000,"VIP", 2),0);
-//        facility.put(new Room("Room",150000,2,"Ngày",200,"Sân thượng"),0);
-//
-//    }
+
     @Override
     public void display() {
         facilitieHashMap = new LinkedHashMap<>();
@@ -37,17 +32,11 @@ public class FacilityService implements IFacilityService {
                 facilitieHashMap.put(room, list.get(room));
             }
             for (Facility facility : facilitieHashMap.keySet()) {
-                System.out.println(facility + ", " + facilitieHashMap.get(facility));
+                System.out.println(facility + "," + facilitieHashMap.get(facility));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        for(Map.Entry<Facility,Integer> item : facility.entrySet()){
-//            System.out.printf("%s - %s",item.getKey(),item.getValue());
-//            System.out.println();
-//
-//        }
     }
 
     @Override
@@ -60,13 +49,12 @@ public class FacilityService implements IFacilityService {
                     "2.Add New House\n" +
                     "3.Add New Room\n" +
                     "4.Back to menu");
-            System.out.println("Chọn số: ");
+            System.out.println("Chọn số : ");
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
                     Villa tempVilla = addVilla();
                     facilitieHashMap.put(tempVilla, 0);
-                    ReadAndWriteVilla.writeCSV(facilitieHashMap);
                     display();
                     break;
                 case 2:
@@ -77,7 +65,6 @@ public class FacilityService implements IFacilityService {
                 case 3:
                     Room tempRoom = addRoom();
                     facilitieHashMap.put(tempRoom, 0);
-                    ReadAndWriteRoom.writeCSV(facilitieHashMap);
                     display();
                     break;
                 case 4:
@@ -100,81 +87,81 @@ public class FacilityService implements IFacilityService {
             e.printStackTrace();
         }
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap id service");
+        System.out.println("Nhập ID Service");
         String id = sc.nextLine();
-        System.out.println("Nhập tên dịch vụ: ");
+        System.out.println("Nhập Tên Dịch Vụ");
         String name = sc.nextLine();
         // giá
         double price = 0;
         do {
             try {
-                System.out.println("Nhập giá : ");
+                System.out.println("Nhập Giá : ");
                 price = Double.parseDouble(sc.nextLine());
                 if (price < 0) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0");
+                    System.out.println("Vui Lòng Nhập Số Lớn Hơn 0 !");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại !");
             }
         } while (price < 0);
         // số lượng
         int numberr = 0;
         do {
             try {
-                System.out.println("Nhập số lượng : ");
+                System.out.println("Nhập Số Lượng : ");
                 numberr = Integer.parseInt(sc.nextLine());
                 if (numberr < 0 || numberr > 20) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
+                    System.out.println("Vui Lòng Nhập Số Lớn Hơn 0 Và Bé Hơn 20");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>0 && <20) !");
             }
         } while (numberr < 0 || numberr > 20);
-        System.out.println("Nhập kiểu: ");
+        System.out.println("Nhập Loại Facility : ");
         String type = sc.nextLine();
         // diện tích sử dụng được
         double usableArea = 0;
         do {
             try {
-                System.out.println("Diện tích có thể sử dụng được: ");
+                System.out.println("Diện Tích Sử Dụng : ");
                 usableArea = Double.parseDouble(sc.nextLine());
                 if (usableArea < 30) {
-                    System.out.println("Vui lòng nhập số lớn hơn 30");
+                    System.out.println("Vui Lòng Nhập Số Lớn Hơn 30 !");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 30");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>30) !");
             }
         } while (usableArea < 30);
 
-        System.out.println("Tiêu chuẩn phòng: ");
+        System.out.println("Tiêu Chuẩn Phòng : ");
         String roomStandard = sc.nextLine();
         // số tầng
         int numberOfFloors = 0;
         do {
             try {
-                System.out.println("Nhập số tầng : ");
+                System.out.println("Nhập Số Tầng");
                 numberOfFloors = Integer.parseInt(sc.nextLine());
                 if (numberOfFloors < 0) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0");
+                    System.out.println("Vui Lòng Nhập Số Lớn Hơn 0!");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>0) !");
             }
         } while (numberOfFloors < 0);
         // diện tích hồ bơi
         double poolArea = 0;
         do {
             try {
-                System.out.println("Diện tích hồ bơi: ");
+                System.out.println("Nhập Diện Tích Hồ Bơi : ");
                 poolArea = Double.parseDouble(sc.nextLine());
                 if (poolArea < 30) {
-                    System.out.println("Vui lòng nhập số lớn hơn 30");
+                    System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>30) !");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 30");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>30) !");
             }
         } while (poolArea < 30);
-        return new Villa(id,name, price, numberr, type, usableArea, roomStandard, numberOfFloors, poolArea);
+        return new Villa(id, name, usableArea,price, numberr, type, roomStandard,poolArea, numberOfFloors);
 
     }
 
@@ -192,114 +179,116 @@ public class FacilityService implements IFacilityService {
             e.printStackTrace();
         }
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap id dich vu : ");
+        System.out.println("Nhập ID Dịch Vụ : ");
         String id = sc.nextLine();
-        System.out.println("Nhập tên dịch vụ: ");
+        System.out.println("Nhập Tên Dịch Vụ : ");
         String name = sc.nextLine();
         double price = 0;
         do {
             try {
-                System.out.println("Nhập giá : ");
+                System.out.println("Nhập Giá  : ");
                 price = Double.parseDouble(sc.nextLine());
                 if (price < 0) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0");
+                    System.out.println("Vui Lòng Nhập Số Lớn Hơn 0 : ");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>0) !");
             }
         } while (price < 0);
         int numberr = 0;
         do {
             try {
-                System.out.println("Nhập số lượng : ");
+                System.out.println("Nhập Số Lượng : ");
                 numberr = Integer.parseInt(sc.nextLine());
                 if (numberr < 0 || numberr > 20) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
+                    System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>0 && <20) !");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>0 && <20) !");
             }
         } while (numberr < 0 || numberr > 20);
-        System.out.println("Nhập kiểu: ");
+        System.out.println("Nhập Kiểu Facility : ");
         String type = sc.nextLine();
         double usableArea = 0;
         do {
             try {
-                System.out.println("Diện có thể sử dụng được: ");
+                System.out.println("Diện Tích Sử Dụng : ");
                 usableArea = Double.parseDouble(sc.nextLine());
                 if (usableArea < 30) {
-                    System.out.println("Vui lòng nhập số lớn hơn 30");
+                    System.out.println("Vui Lòng Nhập Số Lớn Hơn 30");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 30");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>30) !");
             }
         } while (usableArea < 30);
-        System.out.println("Khu vực miễn phí: ");
+        System.out.println("Khu Vực Miễn Phí : ");
         String freeService = sc.nextLine();
-        return new Room(id,name, price, numberr, type, usableArea, freeService);
+        return new Room(id, name,usableArea, price, numberr, type, freeService);
     }
+
     public House addHouse() {
         facilitieHashMap = new LinkedHashMap<>();
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap id dich vu : ");
+        System.out.println("Nhập ID Dịch Vụ : ");
         String id = sc.nextLine();
-        System.out.println("Nhập tên dịch: ");
+        System.out.println("Nhập Tên Dịch Vụ : ");
         String name = sc.nextLine();
         double price = 0;
         do {
             try {
-                System.out.println("Nhập giá : ");
+                System.out.println("Nhập Giá : ");
                 price = Double.parseDouble(sc.nextLine());
                 if (price < 0) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0");
+                    System.out.println("Vui Lòng Nhập Số Lớn Hơn 0");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>0) !");
             }
         } while (price < 0);
         int numberr = 0;
         do {
             try {
-                System.out.println("Nhập số lượng : ");
+                System.out.println("Nhập Số Lượng : ");
                 numberr = Integer.parseInt(sc.nextLine());
                 if (numberr < 0 || numberr > 20) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
+                    System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(0< && <20) !");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
+                System.out.println("BSai Định Dạng,Đề Nghị Nhập Lại(0< && <20) !");
             }
         } while (numberr < 0 || numberr > 20);
-        System.out.println("Nhập kiểu: ");
+        System.out.println("Nhập Kiểu : ");
         String type = sc.nextLine();
         double usableArea = 0;
         do {
             try {
-                System.out.println("Diện có thể sử dụng được: ");
+                System.out.println("Diện Tích Sử Dụng : ");
                 usableArea = Double.parseDouble(sc.nextLine());
                 if (usableArea < 30) {
-                    System.out.println("Vui lòng nhập số lớn hơn 30");
+                    System.out.println("Vui Lòng Nhập Số Lớn Hơn 30");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 30");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>30) !");
             }
         } while (usableArea < 30);
-        System.out.println("Tiêu chuẩn phòng: ");
+        System.out.println("Tiêu Chuẩn Phòng : ");
         String roomStandard = sc.nextLine();
         int numberOfFloors = 0;
         do {
             try {
-                System.out.println("Nhập số tầng : ");
+                System.out.println("Nhập Số Tầng : ");
                 numberOfFloors = Integer.parseInt(sc.nextLine());
                 if (numberOfFloors < 0) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0");
+                    System.out.println("Vui Lòng Nhập Số Lớn Hơn 0");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
+                System.out.println("Sai Định Dạng,Đề Nghị Nhập Lại(>0) !");
             }
         } while (numberOfFloors < 0);
-        return new House(id,name, price, numberr, type, usableArea, roomStandard, numberOfFloors);
+        return new House(id, name,usableArea, price, numberr, type, roomStandard, numberOfFloors);
     }
+
     public void edit() {
         facilitieHashMap = new LinkedHashMap<>();
     }

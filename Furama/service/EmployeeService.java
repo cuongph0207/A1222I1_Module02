@@ -3,41 +3,33 @@ package module2.Furama.service;
 import module2.Furama.model.Customer;
 import module2.Furama.model.Employee;
 import module2.Furama.until.ReadAndWriteEmployee;
-import module2.Furama.until.RegexPerson;
+import module2.Furama.validate.RegexPerson;
+import module2.Furama.validate.Validate;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 
-public class EmployeeService implements IEmployeeService{
+public class EmployeeService implements IEmployeeService {
     private static ArrayList<Employee> employeeList = new ArrayList<>();
-    //    static {
-//        employeeList.add(new Employee("1", "Phuc", 21,"nam","Đà Nẵng",001,"phuc@gmail.com","Quản lí","10000000","Giám đốc"));
-//        employeeList.add(new Employee("2", "A", 20,"nam","Hà Nội",002,"a@gmail.com","Quản lí","5000000","Phó giám đốc"));
-//        employeeList.add(new Employee("3", "B", 22,"nam","Bình Dương",003,"b@gmail.com","Quản lí","7000000","Trưởng phòng"));
-//        employeeList.add(new Employee("4", "C", 23,"nam","Quảng Nam",004,"c@gmail.com","Quản lí","8000000","Phó trường phòng"));
-//    }
+
     @Override
     public void display() {
         try {
-            employeeList = (ArrayList<Employee>)ReadAndWriteEmployee.readCSV();
+            employeeList = (ArrayList<Employee>) ReadAndWriteEmployee.readCSV();
             for (Employee employee : employeeList) {
                 System.out.println(employee);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        for (int i =0; i<employeeList.size();i++){
-//            System.out.println(employeeList.get(i));
-//        }
     }
 
     @Override
     public void add() {
         try {
-            employeeList = (ArrayList<Employee>)ReadAndWriteEmployee.readCSV();
+            employeeList = (ArrayList<Employee>) ReadAndWriteEmployee.readCSV();
             for (Employee employee : employeeList) {
                 System.out.println(employee);
             }
@@ -45,8 +37,7 @@ public class EmployeeService implements IEmployeeService{
             e.printStackTrace();
         }
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập id");
-        String id = sc.nextLine();
+        String id = RegexPerson.idEmployee();
         String name = RegexPerson.name();
         LocalDate age = RegexPerson.age();
         System.out.println("Chọn Giới Tính : ");
@@ -66,6 +57,7 @@ public class EmployeeService implements IEmployeeService{
             }
         } while (choose < 1 || choose > 2);
         String idCard = RegexPerson.idCard();
+        String phone = RegexPerson.phone();
         String email = RegexPerson.email();
         // trình độ
         String level = null;
@@ -94,7 +86,6 @@ public class EmployeeService implements IEmployeeService{
 
         } while (choose < 1 || choose > 4);
         double salary = RegexPerson.salary();
-        // chức vụ
         String position = null;
         System.out.println("Chức vụ: ");
         System.out.println("1.Lễ Tân");
@@ -127,9 +118,8 @@ public class EmployeeService implements IEmployeeService{
                     break;
             }
         } while (choose < 1 || choose > 6);
-        Employee employee = new Employee(id,name,age,gender,id,email,level,salary,position);
+        Employee employee = new Employee(id, name, age, gender, idCard, phone, email, level, position, salary);
         employeeList.add(employee);
-        //write
         try {
             ReadAndWriteEmployee.writeCSV(employeeList);
         } catch (IOException e) {
@@ -169,8 +159,8 @@ public class EmployeeService implements IEmployeeService{
                     }
                 } while (choose < 1 || choose > 2);
                 String idCard = RegexPerson.idCard();
+                String phone = RegexPerson.phone();
                 String email = RegexPerson.email();
-                // trình độ
                 String level = null;
                 System.out.println("Trình độ: ");
                 System.out.println("1.Trung cấp");
@@ -230,7 +220,7 @@ public class EmployeeService implements IEmployeeService{
                             break;
                     }
                 } while (choose < 1 || choose > 6);
-                employeeList.set(i, new Employee(inputID, name, age, gender, idCard, email, level, salary, position));
+                employeeList.set(i, new Employee(inputID, name, age, gender, idCard, phone, email, level, position, salary));
                 try {
                     ReadAndWriteEmployee.writeCSV(employeeList);
                 } catch (IOException e) {
@@ -245,6 +235,7 @@ public class EmployeeService implements IEmployeeService{
 
 
     }
+
 
     @Override
     public void delete() {

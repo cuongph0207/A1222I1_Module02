@@ -9,8 +9,13 @@ public class Customer extends Person {
     public Customer() {
     }
 
-    public Customer(String id, String name, LocalDate age, String gender, String idCard, String email, String type, String address) {
-        super(id, name, age, gender, idCard, email);
+    public Customer(String type, String address) {
+        this.type = type;
+        this.address = address;
+    }
+
+    public Customer(String id, String name, LocalDate dateOfBirth, String gender, String idCard, String phone, String email, String type, String address) {
+        super(id, name, dateOfBirth, gender, idCard, phone, email);
         this.type = type;
         this.address = address;
     }
@@ -33,8 +38,15 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "type='" + type + '\'' +
+        return "Customer{{" +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", dateOfBirth=" + getDateOfBirth() +
+                ", gender='" + getGender() + '\'' +
+                ", idCard='" + getIdCard() + '\'' +
+                ", phone='" + getPhone() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", type='" + type + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }

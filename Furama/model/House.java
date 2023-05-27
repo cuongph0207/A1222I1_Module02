@@ -1,6 +1,6 @@
 package module2.Furama.model;
 
-public class House extends Facility  {
+public class House extends Facility {
     private String roomStandard;
     private int floor;
 
@@ -12,8 +12,8 @@ public class House extends Facility  {
         this.floor = floor;
     }
 
-    public House(String serviceCode, String serviceName, double price, int numberOfPeople, String styleRent, double area, String roomStandard, int floor) {
-        super(serviceCode, serviceName, price, numberOfPeople, styleRent, area);
+    public House(String serviceCode, String serviceName, double area, double price, int numberOfPeople, String styleRent, String roomStandard, int floor) {
+        super(serviceCode, serviceName, area, price, numberOfPeople, styleRent);
         this.roomStandard = roomStandard;
         this.floor = floor;
     }
@@ -42,3 +42,5 @@ public class House extends Facility  {
                 '}';
     }
 }
+
+

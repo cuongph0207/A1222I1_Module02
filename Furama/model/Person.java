@@ -5,20 +5,22 @@ import java.time.LocalDate;
 public abstract class Person {
     private String id;
     private String name;
-    private LocalDate age;
+    private LocalDate dateOfBirth;
     private String gender;
     private String idCard;
+    private String phone;
     private String email;
 
     public Person() {
     }
 
-    public Person(String id, String name, LocalDate age, String gender, String idCard, String email) {
+    public Person(String id, String name, LocalDate dateOfBirth, String gender, String idCard, String phone, String email) {
         this.id = id;
         this.name = name;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.idCard = idCard;
+        this.phone = phone;
         this.email = email;
     }
 
@@ -38,12 +40,12 @@ public abstract class Person {
         this.name = name;
     }
 
-    public LocalDate getAge() {
-        return age;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(LocalDate age) {
-        this.age = age;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getGender() {
@@ -54,13 +56,20 @@ public abstract class Person {
         this.gender = gender;
     }
 
-
     public String getIdCard() {
         return idCard;
     }
 
     public void setIdCard(String idCard) {
         this.idCard = idCard;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -76,9 +85,10 @@ public abstract class Person {
         return "Person{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", age=" + age +
+                ", dateOfBirth=" + dateOfBirth +
                 ", gender='" + gender + '\'' +
                 ", idCard='" + idCard + '\'' +
+                ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

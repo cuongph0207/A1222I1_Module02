@@ -1,6 +1,6 @@
 package module2.Furama.service;
 
-public class BookingService implements IBookingService{
+public class BookingService implements IBookingService {
 
     @Override
     public void display() {

@@ -8,18 +8,18 @@ public class Booking {
     private Date checkIn;
     private Date checkOut;
     private String customerId;
-    private String service;
+    private String serviceCode;
 
     public Booking() {
     }
 
-    public Booking(String bookingCode, Date bookingDay, Date checkIn, Date checkOut, String customerId, String service) {
+    public Booking(String bookingCode, Date bookingDay, Date checkIn, Date checkOut, String customerId, String serviceCode) {
         this.bookingCode = bookingCode;
         this.bookingDay = bookingDay;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.customerId = customerId;
-        this.service = service;
+        this.serviceCode = serviceCode;
     }
 
     public String getBookingCode() {
@@ -62,12 +62,12 @@ public class Booking {
         this.customerId = customerId;
     }
 
-    public String getService() {
-        return service;
+    public String getServiceCode() {
+        return serviceCode;
     }
 
-    public void setService(String service) {
-        this.service = service;
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class Booking {
                 ", checkIn=" + checkIn +
                 ", checkOut=" + checkOut +
                 ", customerId='" + customerId + '\'' +
-                ", service='" + service + '\'' +
+                ", service='" + serviceCode + '\'' +
                 '}';
     }
 }

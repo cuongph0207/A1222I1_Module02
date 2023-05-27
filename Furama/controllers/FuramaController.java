@@ -1,9 +1,18 @@
 package module2.Furama.controllers;
 
+import module2.Furama.model.Customer;
+import module2.Furama.model.Employee;
+import module2.Furama.service.BookingService;
+import module2.Furama.service.CustomerService;
+import module2.Furama.service.EmployeeService;
+import module2.Furama.service.FacilityService;
 
 import java.util.Scanner;
 
 public class FuramaController {
+    Customer customer = new Customer();
+    Employee employee = new Employee();
+
     public static void displayMainMenu() {
         boolean check = true;
         while (check) {
@@ -17,14 +26,19 @@ public class FuramaController {
             int input = sc.nextInt();
             switch (input) {
                 case 1:
+                    displayEmployeeManagerment();
                     break;
                 case 2:
+                    displayCustomerManagerment();
                     break;
                 case 3:
+                    displayFacilityManagerment();
                     break;
                 case 4:
+                    displayBookingManagerment();
                     break;
                 case 5:
+                    displayPromotionManagement();
                     break;
                 case 6:
                     System.exit(0);
@@ -34,6 +48,7 @@ public class FuramaController {
     }
 
     public static void displayEmployeeManagerment() {
+        EmployeeService employeeService = new EmployeeService();
         boolean check = true;
         System.out.println("1\tDisplay list employees\n" +
                 "2\tAdd new employee\n" +
@@ -43,10 +58,13 @@ public class FuramaController {
         int input = sc.nextInt();
         switch (input) {
             case 1:
+                employeeService.display();
                 break;
             case 2:
+                employeeService.add();
                 break;
             case 3:
+                employeeService.edit();
                 break;
             case 4:
                 displayMainMenu();
@@ -55,6 +73,7 @@ public class FuramaController {
     }
 
     public static void displayCustomerManagerment() {
+        CustomerService customerService = new CustomerService();
         boolean check = true;
         System.out.println("1.\tDisplay list customers\n" +
                 "2.\tAdd new customer\n" +
@@ -64,10 +83,13 @@ public class FuramaController {
         int input = sc.nextInt();
         switch (input) {
             case 1:
+                customerService.display();
                 break;
             case 2:
+                customerService.add();
                 break;
             case 3:
+                customerService.edit();
                 break;
             case 4:
                 displayMainMenu();
@@ -76,6 +98,7 @@ public class FuramaController {
     }
 
     public static void displayFacilityManagerment() {
+        FacilityService facilityService = new FacilityService();
         boolean check = true;
         System.out.println("1\tDisplay list facility\n" +
                 "2\tAdd new facility\n" +
@@ -85,10 +108,13 @@ public class FuramaController {
         int input = sc.nextInt();
         switch (input) {
             case 1:
+                facilityService.display();
                 break;
             case 2:
+                facilityService.add();
                 break;
             case 3:
+                facilityService.edit();
                 break;
             case 4:
                 displayMainMenu();
@@ -97,6 +123,7 @@ public class FuramaController {
     }
 
     public static void displayBookingManagerment() {
+        BookingService bookingService = new BookingService();
         boolean check = true;
         System.out.println("1.\tAdd new booking\n" +
                 "2.\tDisplay list booking\n" +
@@ -108,8 +135,10 @@ public class FuramaController {
         int input = sc.nextInt();
         switch (input) {
             case 1:
+                bookingService.add();
                 break;
             case 2:
+                bookingService.display();
                 break;
             case 3:
                 break;

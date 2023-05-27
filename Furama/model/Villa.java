@@ -2,23 +2,24 @@ package module2.Furama.model;
 
 public class Villa extends Facility {
     private String roomStandard;
-    private int floor;
     private double poolArea;
+
+    private int floor;
 
     public Villa() {
     }
 
-    public Villa(String roomStandard, int floor, double poolArea) {
+    public Villa(String roomStandard, double poolArea, int floor) {
         this.roomStandard = roomStandard;
-        this.floor = floor;
         this.poolArea = poolArea;
+        this.floor = floor;
     }
 
-    public Villa(String serviceCode, String serviceName, double price, int numberOfPeople, String styleRent, double area, String roomStandard, int floor, double poolArea) {
-        super(serviceCode, serviceName, price, numberOfPeople, styleRent, area);
+    public Villa(String serviceCode, String serviceName, double area, double price, int numberOfPeople, String styleRent, String roomStandard, double poolArea, int floor) {
+        super(serviceCode, serviceName, area, price, numberOfPeople, styleRent);
         this.roomStandard = roomStandard;
-        this.floor = floor;
         this.poolArea = poolArea;
+        this.floor = floor;
     }
 
     public String getRoomStandard() {
@@ -29,14 +30,6 @@ public class Villa extends Facility {
         this.roomStandard = roomStandard;
     }
 
-    public int getFloor() {
-        return floor;
-    }
-
-    public void setFloor(int floor) {
-        this.floor = floor;
-    }
-
     public double getPoolArea() {
         return poolArea;
     }
@@ -45,12 +38,21 @@ public class Villa extends Facility {
         this.poolArea = poolArea;
     }
 
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
     @Override
     public String toString() {
         return "Villa{" +
                 "roomStandard='" + roomStandard + '\'' +
-                ", floor=" + floor +
                 ", poolArea=" + poolArea +
+                ", floor=" + floor +
                 '}';
     }
 }
+
